@@ -1,10 +1,10 @@
-
+import '../css/MovieCard.css'
 function MovieCard({movie}) {
 
     return (
         <div className="movie-card">
             <div className="movie-poster">
-                <img src={movie.url} alt={movie.title} style={{height: "250px", objectFit: "cover"}}/>
+                <img src={movie.url} alt={movie.title}/>
                 <div className="movie-overlay">
                     <button className="favourite-btn" onClick={()=> {
                         alert("Added to favourites");
