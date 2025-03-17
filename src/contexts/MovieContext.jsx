@@ -22,11 +22,11 @@ export const MovieProvider = ({children}) => {
     }, [favorites])
 
     const addFavorites = (movies)=> {
-        setFavorites(prev = [...prev, movies]);
+        setFavorites(prev => [...prev, movies]);
     }
 
     const removeFromFavorites = (movieId)=> {
-        setFavorites(prev => prev.filter(movie => movie.id !== movie.id)); // Need to check
+        setFavorites(prev => prev.filter(movie => movie.id !== movieId)); // Need to check
     }
 
     const isFavorites = (movieId)=> {
