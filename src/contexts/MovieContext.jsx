@@ -20,6 +20,31 @@ export const MovieProvider = ({children}) => {
     useEffect(()=> {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }, [favorites])
+
+    const addFavorites = (movies)=> {
+        setFavorites(prev = [...prev, movies]);
+    }
+
+    const removeFromFavorites = (movieId)=> {
+        setFavorites(prev => prev.filter(movie => movie.id !== movie.id)); // Need to check
+    }
+
+    const isFavorites = (movieId)=> {
+        return favorites.some(movie => movie.id === movieId);
+    }
+
+    const value = {
+        favorites,
+        addFavorites,
+        removeFromFavorites,
+        isFavorites
+    }
+
+    return (
+        <MovieContext.Provider value = {value}>
+            {children}
+        </MovieContext.Provider>
+    )
     
 }
 
